@@ -14,7 +14,7 @@ export class ProductDetailPage {
   async verifyProductTitle(expectedTitle: string) {
     const titleContainer = this.page.getByTestId('x-item-title');
     await expect(titleContainer.locator('span')).toContainText(expectedTitle);
-    await expect(titleContainer.getByText(expectedTitle.split(' ')[0])).toBeVisible(); // quick presence check
+    await expect(titleContainer.getByText(expectedTitle.split(' ')[0])).toBeVisible(); 
   }
 
   async verifyProductPrice(expectedPrice: string) {

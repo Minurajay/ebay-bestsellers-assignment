@@ -19,7 +19,7 @@ test('User can search and view related best sellers for a wallet product', async
 
   await test.step('Open product in new tab', async () => {
     const newTab = await productListPage.clickFirstProductAndOpenInNewTab();
-    productDetailPage = new ProductDetailPage(newTab); // 🔁 create new instance with correct tab
+    productDetailPage = new ProductDetailPage(newTab); // create new instance with correct tab
   });
 
   await test.step('Verify product title and price on detail page', async () => {
