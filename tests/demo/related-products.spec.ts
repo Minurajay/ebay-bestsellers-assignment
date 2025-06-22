@@ -13,5 +13,10 @@ test('User can search and view related best sellers for a wallet product', async
   await test.step('Verify result heading appears for searched product', async () => {
     await productListPage.verifyResultsHeading(testData.productName);
   });
-
+ 
+  await test.step('Open product in new tab', async () => {
+    const productPage = await productListPage.clickFirstProductAndOpenInNewTab();
+    // continue with new tab validations here using productPage
+  });
+  
 });
