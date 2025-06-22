@@ -22,7 +22,7 @@ export class ProductDetailPage {
   }
 
   async verifySimilarItemsSectionInNewTab() {
-  await expect(this.page.locator('.vVtM')).toBeVisible();
-  await expect(this.page.getByRole('heading', { name: 'Similar items' })).toBeVisible();
+  await expect(this.similarItemsSection).toBeVisible();
+  await expect(this.similarItemsHeading).toBeVisible();
 }
 }
