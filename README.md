@@ -59,7 +59,7 @@ npx playwright test --headed
 npx playwright test --project chromium
 
 # Run specific test file
-npx playwright test example.spec.ts
+npx playwright test related-products.spec.ts
 
 # Debug mode
 npx playwright test --debug
