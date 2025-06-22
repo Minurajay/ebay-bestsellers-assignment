@@ -6,7 +6,7 @@ test('User can search and view related best sellers for a wallet product', async
   let productDetailPage: ProductDetailPage;
 
   await test.step('Navigate to eBay home page', async () => {
-    await homePage.navigateToHomePage();
+    await homePage.navigateToHomePage(process.env.BASE_URL as string);
   });
 
   await test.step('Search for a specific product', async () => {

@@ -13,10 +13,11 @@ export class HomePage {
     this.searchButton = page.getByRole('button', { name: 'Search', exact: true });
   }
 
-  async navigateToHomePage() {
-    await this.page.goto('https://www.ebay.com/');
-    await expect(this.ebayHomeLink).toBeVisible();
-  }
+  async navigateToHomePage(baseUrl: string) {
+  await this.page.goto(baseUrl);
+  await expect(this.ebayHomeLink).toBeVisible();
+}
+
 
   async searchForProduct(productName: string) {
     await this.searchBox.fill(productName);
