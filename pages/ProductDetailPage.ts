@@ -21,8 +21,8 @@ export class ProductDetailPage {
     await expect(this.page.getByText(expectedPrice)).toBeVisible();
   }
 
-  async verifySimilarItemsSectionInNewTab(productPage: Page) {
-  await expect(productPage.locator('.vVtM')).toBeVisible();
-  await expect(productPage.getByRole('heading', { name: 'Similar items' })).toBeVisible();
+  async verifySimilarItemsSectionInNewTab() {
+  await expect(this.page.locator('.vVtM')).toBeVisible();
+  await expect(this.page.getByRole('heading', { name: 'Similar items' })).toBeVisible();
 }
 }
