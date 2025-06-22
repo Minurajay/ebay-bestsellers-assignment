@@ -25,5 +25,6 @@ test('User can search and view related best sellers for a wallet product', async
   await test.step('Verify product title and price on detail page', async () => {
     await productDetailPage.verifyProductTitle(testData.productName);
     await productDetailPage.verifyProductPrice(testData.productPrice);
+    // await productDetailPage.verifySimilarItemsSectionInNewTab(productDetailPage.page);
   });
 });
