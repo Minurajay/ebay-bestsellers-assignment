@@ -27,4 +27,11 @@ export class ProductDetailPage {
   await this.similarItemsHeading.scrollIntoViewIfNeeded();
   await expect(this.similarItemsHeading).toBeVisible();
 }
+
+async verifyMaxRelatedProducts(limit = 6) {
+  const relatedItems = this.page.locator('div.Mgpb');
+  const count = await relatedItems.count();
+  // console.log(`🧾 Found ${count} related products`);
+  expect(count).toBeLessThanOrEqual(limit);
+}
 }

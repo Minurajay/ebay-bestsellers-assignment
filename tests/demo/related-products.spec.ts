@@ -27,4 +27,8 @@ test('User can search and view related best sellers for a wallet product', async
     await productDetailPage.verifyProductPrice(testData.productPrice);
     await productDetailPage.verifySimilarItemsSectionInNewTab();
   });
+
+  await test.step('Verify that a maximum of 6 related products are displayed', async () => {
+    await productDetailPage.verifyMaxRelatedProducts();
+  });
 });
