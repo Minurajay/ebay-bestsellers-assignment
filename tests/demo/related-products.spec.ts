@@ -1,7 +1,10 @@
 import { test } from '../../utils/fixtures';
-import testData from '../../data/testdata.json'; 
+import testData from '../../data/testdata.json';
+import { ProductDetailPage } from '../../pages/ProductDetailPage';
 
 test('User can search and view related best sellers for a wallet product', async ({ homePage, productListPage }) => {
+  let productDetailPage: ProductDetailPage;
+
   await test.step('Navigate to eBay home page', async () => {
     await homePage.navigateToHomePage();
   });
@@ -9,14 +12,18 @@ test('User can search and view related best sellers for a wallet product', async
   await test.step('Search for a specific product', async () => {
     await homePage.searchForProduct(testData.productName);
   });
-   
+
   await test.step('Verify result heading appears for searched product', async () => {
     await productListPage.verifyResultsHeading(testData.productName);
   });
- 
+
   await test.step('Open product in new tab', async () => {
-    const productPage = await productListPage.clickFirstProductAndOpenInNewTab();
-    // continue with new tab validations here using productPage
+    const newTab = await productListPage.clickFirstProductAndOpenInNewTab();
+    productDetailPage = new ProductDetailPage(newTab); // 🔁 create new instance with correct tab
   });
-  
+
+  await test.step('Verify product title and price on detail page', async () => {
+    await productDetailPage.verifyProductTitle(testData.productName);
+    await productDetailPage.verifyProductPrice(testData.productPrice);
+  });
 });
