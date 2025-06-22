@@ -22,7 +22,9 @@ export class ProductDetailPage {
   }
 
   async verifySimilarItemsSectionInNewTab() {
+  await this.similarItemsSection.scrollIntoViewIfNeeded();
   await expect(this.similarItemsSection).toBeVisible();
+  await this.similarItemsHeading.scrollIntoViewIfNeeded();
   await expect(this.similarItemsHeading).toBeVisible();
 }
 }
