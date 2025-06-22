@@ -1,61 +1,69 @@
-# Playwright with JavaScript
-## Project Overview
-This project demonstrates various **Playwright** automation techniques using **JavaScript**. It covers essential automation concepts including element locators, UI interactions, API testing, accessibility testing, and assertions. Each topic is implemented in a separate script, showcasing Playwright's powerful features and built-in test runner.
 
-### The scripts are designed to showcase:
-- **Modern Locators:** Using Playwright's powerful locators (getByRole, getByText, getByLabel, getByAltText).
-- **Browser & Context:** Managing multiple browser contexts and tabs.
-- **Auto-waiting:** Demonstrating Playwright's built-in auto-wait mechanisms.
-- **API Testing:** Performing API tests using Playwright's request context.
-- **Accessibility Testing:** Implementing accessibility checks using @axe-core/playwright.
-- **UI Interactions:** Handling clicks, inputs, dialogs, and complex UI patterns.
-- **Assertions:** Showcasing various assertion types available in Playwright.
+# 🧪 eBay Related Products QA Assessment
 
-Each script focuses on specific Playwright functionality and demonstrates automation across different web applications.
+This project is part of a **QA skills assessment**. It demonstrates both **manual and automated testing** of a feature on **eBay's product detail page** that displays related *best-seller products* when viewing an item like a wallet.
 
-## Installation
-1. Clone the repository:
+---
+
+## ✅ Test Case Coverage
+
+The automated tests cover the following scenarios from the assignment:
+
+- ✅ Product search and listing validation  
+- ✅ Product detail page opens in a new tab  
+- ✅ "Similar Items" section visibility  
+- ✅ Title and price of the selected product  
+- ✅ Asserted max 6 best seller products shown  
+
+> ⚠️ **Note**  
+> Tests involving **dynamic pricing, category comparison, or fallback logic** were skipped due to unpredictable DOM/data structures on eBay. These can be validated manually or with backend access.
+
+---
+
+## ✨ Features
+
+- Page Object Model implementation for better maintainability  
+- Data-driven testing using JSON-based test data  
+- Fixtures used to manage browser context and share page objects  
+- Environment variables used to handle configurable data like base URLs  
+- Robust Playwright assertions for visibility, text validation, and element counts
+
+---
+
+## ⚙️ Installation & Setup
+
 ```bash
-git clone https://github.com/yourusername/playwright-js-project.git
-cd playwright-js-project
+# 1. Clone the repository
+git clone https://github.com/<your-username>/ebay-related-products-tests.git
+cd ebay-related-products-tests
+
+# 2. Install dependencies
+npm install
+
+# 3. (Optional) Create environment config
+cp .env.example .env
 ```
 
-2. Install dependencies:
+---
+
+## 🚀 Test Execution
+
+Run tests in headed mode:
 ```bash
-npm init playwright@latest
+npx playwright test --headed
 ```
 
-3. Install additional packages:
-```bash
-npm install @axe-core/playwright
-npm install -D @playwright/test
-```
-
-## Running Tests
-Run all tests:
+Run tests in headless mode:
 ```bash
 npx playwright test
 ```
 
-Run specific test file:
+Run a specific test:
 ```bash
-npx playwright test tests/accessibility.spec.js
+npx playwright test tests/e2e/product-related.spec.ts
 ```
 
-Run tests with UI mode:
+View HTML test report:
 ```bash
-npx playwright test --ui
+npx playwright show-report
 ```
-
-## Best Practices
-1. Use built-in auto-waiting mechanisms
-2. Prefer role-based selectors
-3. Implement proper test isolation
-4. Use test fixtures for setup/teardown
-5. Implement proper error handling
-6. Use trace viewer for debugging
-
-## Debugging
-- Use UI mode: `npx playwright test --ui`
-- Use Trace Viewer: `npx playwright show-trace trace.zip`
-- Use Debug mode: `PWDEBUG=1 npx playwright test`
